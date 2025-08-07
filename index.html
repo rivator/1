@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rivator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: black;
+      color: lime;
+      overflow: hidden;
+    }
+
+    /* Matrix Rain Effect */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* Scan Lines Effect */
+    .scanlines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      pointer-events: none;
+      background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
+      background-size: 100% 4px;
+      animation: scanlines 0.1s linear infinite;
+    }
+
+    @keyframes scanlines {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(4px); }
+    }
+
+    #hacker-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: lime;
+      padding: 20px;
+      white-space: pre-wrap;
+      font-size: 1.2em;
+      z-index: 9999;
+      text-shadow: 0 0 5px lime;
+    }
+
+    /* Glitch Effect for Hacker Screen */
+    .glitch {
+      animation: glitch 0.3s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-2px); }
+      40% { transform: translateX(2px); }
+      60% { transform: translateX(-1px); }
+      80% { transform: translateX(1px); }
+      100% { transform: translateX(0); }
+    }
+
+    #hack-message {
+      color: red;
+      font-size: 3em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 30px;
+      text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+      animation: hackFlash 0.5s infinite alternate;
+    }
+
+    @keyframes hackFlash {
+      0% { 
+        color: red; 
+        text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+      }
+      100% { 
+        color: #ff6666; 
+        text-shadow: 0 0 20px red, 0 0 40px red, 0 0 60px red;
+      }
+    }
+
+    #main-content {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #00ff00;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 100;
+    }
+
+    #hacked-title {
+      font-size: 4.5em;
+      font-weight: bold;
+      color: red;
+      text-shadow: 0 0 20px red, 0 0 40px red, 0 0 60px red;
+      margin-bottom: 30px;
+      text-align: center;
+      animation: hackedGlitch 0.8s infinite;
+    }
+
+    @keyframes hackedGlitch {
+      0% { 
+        transform: translateX(0);
+        color: red;
+        text-shadow: 0 0 20px red, 0 0 40px red;
+      }
+      10% { 
+        transform: translateX(-3px);
+        color: #ff0066;
+        text-shadow: 3px 0 red, -3px 0 cyan;
+      }
+      20% { 
+        transform: translateX(3px);
+        color: #ff3333;
+      }
+      30% { 
+        transform: translateX(-2px);
+        color: red;
+        text-shadow: 0 0 20px red, 0 0 40px red;
+      }
+      40% { 
+        transform: translateX(2px);
+        color: #ff0000;
+      }
+      50% { 
+        transform: translateX(0);
+        color: red;
+        text-shadow: 0 0 30px red, 0 0 60px red;
+      }
+      100% { 
+        transform: translateX(0);
+        color: red;
+        text-shadow: 0 0 20px red, 0 0 40px red;
+      }
+    }
+
+    .image-container img {
+      width: 700px;
+      height: auto;
+      border: 2px solid #00ff00;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ff00;
+      animation: imageGlitch 2s infinite;
+    }
+
+    @keyframes imageGlitch {
+      0%, 90% { transform: translateX(0); }
+      92% { transform: translateX(-2px); }
+      94% { transform: translateX(2px); }
+      96% { transform: translateX(-1px); }
+      98% { transform: translateX(1px); }
+      100% { transform: translateX(0); }
+    }
+
+    .info, .text {
+      margin-top: 20px;
+      font-size: 1.7em;
+      text-align: center;
+      text-shadow: 0 0 15px lime;
+      letter-spacing: 3px;
+      animation: textFlicker 3s infinite;
+    }
+
+    @keyframes textFlicker {
+      0%, 95% { opacity: 1; }
+      96% { opacity: 0.8; }
+      97% { opacity: 1; }
+      98% { opacity: 0.9; }
+      99% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    .text {
+      font-size: 2.5em;
+      color: #00ff00;
+      text-shadow: 0px 0px 8px #00ff00, 0px 0px 15px #00ff00;
+    }
+
+    /* Normal GIFs Styling */
+    .gif-container {
+      position: fixed;
+      z-index: 9000; /* زيادة z-index ليكون فوق كل شيء */
+      pointer-events: none;
+      display: block;
+    }
+
+    .normal-gif {
+      width: 150px;
+      height: 150px;
+      border-radius: 15px;
+      border: 3px solid #00ff00;
+      box-shadow: 0 0 20px #00ff00;
+      opacity: 1; /* زيادة الشفافية */
+    }
+
+    .gif-top-left {
+      top: 30px;
+      left: 30px;
+    }
+
+    .gif-top-right {
+      top: 30px;
+      right: 30px;
+    }
+
+    .gif-bottom-left {
+      bottom: 150px;
+      left: 30px;
+    }
+
+    /* Connection Lines Animation */
+    .connection-line {
+      position: fixed;
+      z-index: 8999;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .line1 {
+      top: 105px; /* من منتصف gif1 */
+      left: 105px;
+      width: calc(100vw - 210px); /* العرض بين gif1 و gif2 */
+      height: 3px;
+      background: linear-gradient(90deg, #00ff00, #33ff33, #00ff00);
+      animation: lineFlow1 4s infinite;
+      transform-origin: left;
+    }
+
+    .line2 {
+      top: 105px; /* من منتصف gif2 */
+      right: 105px;
+      width: 3px;
+      height: calc(100vh - 360px); /* الطول بين gif2 و gif4 */
+      background: linear-gradient(180deg, #00ff00, #33ff33, #00ff00);
+      animation: lineFlow2 4s infinite 1s;
+      transform-origin: top;
+    }
+
+    .line3 {
+      bottom: 225px; /* من منتصف gif4 */
+      right: 105px;
+      width: calc(100vw - 210px); /* العرض بين gif4 و gif3 */
+      height: 3px;
+      background: linear-gradient(270deg, #00ff00, #33ff33, #00ff00);
+      animation: lineFlow3 4s infinite 2s;
+      transform-origin: right;
+    }
+
+    .line4 {
+      bottom: 225px; /* من منتصف gif3 */
+      left: 105px;
+      width: 3px;
+      height: calc(100vh - 360px); /* الطول بين gif3 و gif1 */
+      background: linear-gradient(0deg, #00ff00, #33ff33, #00ff00);
+      animation: lineFlow4 4s infinite 3s;
+      transform-origin: bottom;
+    }
+
+    @keyframes lineFlow1 {
+      0% { 
+        opacity: 0;
+        transform: scaleX(0);
+        box-shadow: 0 0 5px #00ff00;
+      }
+      20% { 
+        opacity: 1;
+        transform: scaleX(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      80% { 
+        opacity: 1;
+        transform: scaleX(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      100% { 
+        opacity: 0;
+        transform: scaleX(1);
+        box-shadow: 0 0 5px #00ff00;
+      }
+    }
+
+    @keyframes lineFlow2 {
+      0% { 
+        opacity: 0;
+        transform: scaleY(0);
+        box-shadow: 0 0 5px #00ff00;
+      }
+      20% { 
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      80% { 
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      100% { 
+        opacity: 0;
+        transform: scaleY(1);
+        box-shadow: 0 0 5px #00ff00;
+      }
+    }
+
+    @keyframes lineFlow3 {
+      0% { 
+        opacity: 0;
+        transform: scaleX(0);
+        box-shadow: 0 0 5px #00ff00;
+      }
+      20% { 
+        opacity: 1;
+        transform: scaleX(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      80% { 
+        opacity: 1;
+        transform: scaleX(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      100% { 
+        opacity: 0;
+        transform: scaleX(1);
+        box-shadow: 0 0 5px #00ff00;
+      }
+    }
+
+    @keyframes lineFlow4 {
+      0% { 
+        opacity: 0;
+        transform: scaleY(0);
+        box-shadow: 0 0 5px #00ff00;
+      }
+      20% { 
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      80% { 
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+      }
+      100% { 
+        opacity: 0;
+        transform: scaleY(1);
+        box-shadow: 0 0 5px #00ff00;
+      }
+    }
+
+    /* Animated dots flowing through lines */
+    .flow-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #00ff00;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+      opacity: 0;
+    }
+
+    .dot1 {
+      top: -2px;
+      left: 0;
+      animation: flowDot1 4s infinite;
+    }
+
+    .dot2 {
+      top: 0;
+      left: -2px;
+      animation: flowDot2 4s infinite 1s;
+    }
+
+    .dot3 {
+      top: -2px;
+      right: 0;
+      animation: flowDot3 4s infinite 2s;
+    }
+
+    .dot4 {
+      bottom: 0;
+      left: -2px;
+      animation: flowDot4 4s infinite 3s;
+    }
+
+    @keyframes flowDot1 {
+      0% { 
+        opacity: 0;
+        left: 0;
+      }
+      10% { 
+        opacity: 1;
+      }
+      90% { 
+        opacity: 1;
+        left: calc(100% - 8px);
+      }
+      100% { 
+        opacity: 0;
+        left: calc(100% - 8px);
+      }
+    }
+
+    @keyframes flowDot2 {
+      0% { 
+        opacity: 0;
+        top: 0;
+      }
+      10% { 
+        opacity: 1;
+      }
+      90% { 
+        opacity: 1;
+        top: calc(100% - 8px);
+      }
+      100% { 
+        opacity: 0;
+        top: calc(100% - 8px);
+      }
+    }
+
+    @keyframes flowDot3 {
+      0% { 
+        opacity: 0;
+        right: 0;
+      }
+      10% { 
+        opacity: 1;
+      }
+      90% { 
+        opacity: 1;
+        right: calc(100% - 8px);
+      }
+      100% { 
+        opacity: 0;
+        right: calc(100% - 8px);
+      }
+    }
+
+    @keyframes flowDot4 {
+      0% { 
+        opacity: 0;
+        bottom: 0;
+      }
+      10% { 
+        opacity: 1;
+      }
+      90% { 
+        opacity: 1;
+        bottom: calc(100% - 8px);
+      }
+      100% { 
+        opacity: 0;
+        bottom: calc(100% - 8px);
+      }
+    }
+
+    /* Special Flashing Effect for @rivartor */
+    .rivartor-flash {
+      animation: rivartor-glow 1.5s infinite alternate;
+    }
+
+    @keyframes rivartor-glow {
+      0% { 
+        color: #00ff00;
+        text-shadow: 0px 0px 8px #00ff00, 0px 0px 15px #00ff00;
+      }
+      25% { 
+        color: #33ff33;
+        text-shadow: 0px 0px 12px #33ff33, 0px 0px 25px #33ff33;
+      }
+      50% { 
+        color: #66ff66;
+        text-shadow: 0px 0px 20px #66ff66, 0px 0px 40px #66ff66;
+      }
+      75% { 
+        color: #99ff99;
+        text-shadow: 0px 0px 15px #99ff99, 0px 0px 30px #99ff99;
+      }
+      100% { 
+        color: #ccffcc;
+        text-shadow: 0px 0px 25px #ccffcc, 0px 0px 50px #ccffcc;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Audio Controls */
+    audio {
+      display: none;
+    }
+
+    /* Color Flash Effect */
+    .color-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0;
+    }
+
+    .flash-red {
+      background-color: red;
+      animation: flashRed 0.1s;
+    }
+
+    @keyframes flashRed {
+      0% { opacity: 0; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Matrix Rain Background -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- Scan Lines Effect -->
+<div class="scanlines"></div>
+
+<!-- Color Flash Effect -->
+<div class="color-flash" id="color-flash"></div>
+
+<div id="hacker-screen"></div>
+
+<div id="main-content">
+  <div id="hacked-title">HACKED BY @rivator.</div>
+  
+  <div class="image-container">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnVuczE2ajVqcHFpb2thbDJnOWI2c2l5ZzF6NTZtM3Q0MzMzNDRybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bJ4TVNYNUympPgcpem/giphy.gif" alt="Hacker GIF">
+  </div>
+
+  <!-- Audio Elements -->
+  <audio autoplay loop id="bg-music" preload="auto">
+    <source src="https://cdn.discordapp.com/attachments/1399474134446243873/1403085700206690314/Cowbell_cult_smoke_feat._JOEHDAH_Slow-Reverb.mp3?ex=689644e3&is=6894f363&hm=85e45fd7459a84d43f45fbcd584162e50552a915eeffca3e07697f753a2906dc&" type="audio/mp3">
+  </audio>
+
+  <div class="info" id="ip-info">
+    <strong>IP: <span id="ip"></span></strong><br>
+    <span><strong>City:</strong> <span id="city"></span></span><br>
+    <span><strong>Region:</strong> <span id="region"></span></span><br>
+    <span><strong>Country:</strong> <span id="country"></span></span><br>
+    <span><strong>Location:</strong> <span id="loc"></span></span><br>
+    <span><strong>Organization:</strong> <span id="org"></span></span><br>
+    <span><strong>Timezone:</strong> <span id="timezone"></span></span>
+  </div>
+
+  <div class="text">discord : <span class="rivartor-flash">@rivartor.</span></div>
+</div>
+
+<!-- Connection Lines Animation -->
+<div class="connection-line line1" id="line1">
+  <div class="flow-dot dot1"></div>
+</div>
+
+<div class="connection-line line2" id="line2">
+  <div class="flow-dot dot2"></div>
+</div>
+
+<div class="connection-line line3" id="line3">
+  <div class="flow-dot dot3"></div>
+</div>
+
+<div class="connection-line line4" id="line4">
+  <div class="flow-dot dot4"></div>
+</div>
+
+<!-- Normal GIFs - Visible by default for testing -->
+<div class="gif-container gif-top-left" id="gif1" style="display: block;">
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXV1NW5mdTd6N2VxcHcyNTR4MmRxZXU3bnU4NGVja3hneHI0YmRqNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vuAiSUvSf87YnP4j27/giphy.gif" class="normal-gif" alt="GIF 1" style="display: block;">
+</div>
+
+<div class="gif-container gif-top-right" id="gif2" style="display: block;">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHR5bDNnenA4bXFnbG5lajJ5ZDQybm92MDJmeHgzNDA0dTU4OTR3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0Sn3r2PV1rLaKv9F4D/giphy.gif" class="normal-gif" alt="GIF 2" style="display: block;">
+</div>
+
+<div class="gif-container gif-bottom-left" id="gif3" style="display: block;">
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXV3MzFlN3dveHNlOW5tb2w4OHRiN2kxY3psYWdvZXVycnYyNXc4NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yb4GOQLoRkTJFnaJam/giphy.gif" class="normal-gif" alt="GIF 3" style="display: block;">
+</div>
+
+<div class="gif-container gif-bottom-right" id="gif4" style="display: block;">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW4wdmhmbzR3M285b2QwNnNuc2x2a2tpb3dpNzIzbHQ0OGw0cmpqMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7aDdSjGlUbmwFCQo/giphy.gif" class="normal-gif" alt="GIF 4" style="display: block;">
+</div>
+
+<script>
+  // Start background music immediately
+  window.addEventListener('load', () => {
+    const bgMusic = document.getElementById('bg-music');
+    bgMusic.volume = 0.5; // Set volume to 50%
+    
+    // Try to play immediately
+    bgMusic.play().catch(() => {
+      // If autoplay fails, try on first user interaction
+      document.addEventListener('click', () => {
+        bgMusic.play().catch(() => {});
+      }, { once: true });
+      
+      document.addEventListener('keydown', () => {
+        bgMusic.play().catch(() => {});
+      }, { once: true });
+    });
+  });
+
+  // Matrix Rain Effect
+  const canvas = document.getElementById('matrix-canvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+  const matrixArray = matrix.split("");
+
+  const fontSize = 10;
+  const columns = canvas.width / fontSize;
+
+  const drops = [];
+  for(let x = 0; x < columns; x++) {
+    drops[x] = 1;
+  }
+
+  function drawMatrix() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#0F0';
+    ctx.font = fontSize + 'px arial';
+
+    for(let i = 0; i < drops.length; i++) {
+      const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 35);
+
+  // Typing Sound Effect (Simple Beep)
+  function playTypingSound() {
+    // Create a simple beep sound using Web Audio API
+    try {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+      
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.1);
+    } catch(e) {
+      // Fallback: do nothing if audio context fails
+    }
+  }
+
+  // Hack Alert Sound
+  function playHackAlert() {
+    try {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(500, audioContext.currentTime);
+      oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+      oscillator.frequency.setValueAtTime(500, audioContext.currentTime + 0.2);
+      
+      gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.3);
+    } catch(e) {
+      // Fallback: do nothing if audio context fails
+    }
+  }
+
+  // Color Flash Effect
+  function triggerColorFlash() {
+    const flash = document.getElementById('color-flash');
+    flash.classList.add('flash-red');
+    setTimeout(() => {
+      flash.classList.remove('flash-red');
+    }, 100);
+  }
+
+  // Enhanced Hacker Text Animation
+  const hackerText = `Initializing neural network...\nScanning for vulnerabilities...\nExploiting security protocols...\nBypassing encryption layers...\nInjecting malicious payload...\nEscalating system privileges...\nAccess granted to mainframe...\nExtracting classified data...\n\n`;
+  const finalMessage = `TARGET COMPROMISED - RIVATOR OWNS YOU NOW`;
+  const hackerScreen = document.getElementById('hacker-screen');
+  let i = 0;
+
+  function typeEffect() {
+    if (i < hackerText.length) {
+      hackerScreen.innerHTML += hackerText.charAt(i);
+      
+      // Play typing sound for each character
+      if (Math.random() > 0.7) {
+        playTypingSound();
+      }
+      
+      // Add glitch effect randomly
+      if (Math.random() > 0.95) {
+        hackerScreen.classList.add('glitch');
+        setTimeout(() => {
+          hackerScreen.classList.remove('glitch');
+        }, 100);
+      }
+      
+      i++;
+      setTimeout(typeEffect, Math.random() * 10 + 5); // Faster typing speed
+    } else {
+      const msg = document.createElement('div');
+      msg.id = 'hack-message';
+      msg.innerText = finalMessage;
+      hackerScreen.appendChild(msg);
+      
+      // Play hack alert and flash
+      playHackAlert();
+      triggerColorFlash();
+      
+      // Multiple flashes for dramatic effect
+      setTimeout(() => triggerColorFlash(), 200);
+      setTimeout(() => triggerColorFlash(), 400);
+
+      setTimeout(() => {
+        hackerScreen.style.display = 'none';
+        document.getElementById('main-content').style.display = 'flex';
+        
+        // Show GIFs immediately when main content appears
+        const gif1 = document.getElementById('gif1');
+        const gif2 = document.getElementById('gif2');
+        const gif3 = document.getElementById('gif3');
+        const gif4 = document.getElementById('gif4');
+        
+        if (gif1) gif1.style.display = 'block';
+        if (gif2) gif2.style.display = 'block';
+        if (gif3) gif3.style.display = 'block';
+        if (gif4) gif4.style.display = 'block';
+        
+        // Start connection lines animation after a short delay
+        setTimeout(() => {
+          const line1 = document.getElementById('line1');
+          const line2 = document.getElementById('line2');
+          const line3 = document.getElementById('line3');
+          const line4 = document.getElementById('line4');
+          
+          if (line1) line1.style.display = 'block';
+          if (line2) line2.style.display = 'block';
+          if (line3) line3.style.display = 'block';
+          if (line4) line4.style.display = 'block';
+        }, 1000);
+        
+        // Ensure music continues playing
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic.paused) {
+          bgMusic.play().catch(() => {});
+        }
+        
+        // Another alert when main content shows
+        setTimeout(() => {
+          playHackAlert();
+          triggerColorFlash();
+        }, 500);
+        
+      }, 3000);
+    }
+  }
+
+  typeEffect();
+
+  // IP Information with glitch effects
+  fetch('https://ipinfo.io/json')
+    .then(res => res.json())
+    .then(data => {
+      // Add dramatic delays and effects while showing IP info
+      const infoElements = ['ip', 'city', 'region', 'country', 'loc', 'org', 'timezone'];
+      const dataKeys = ['ip', 'city', 'region', 'country', 'loc', 'org', 'timezone'];
+      
+      infoElements.forEach((elementId, index) => {
+        setTimeout(() => {
+          const element = document.getElementById(elementId);
+          let text = data[dataKeys[index]] || 'UNKNOWN';
+          
+          // Glitch effect while typing
+          let charIndex = 0;
+          const typeText = setInterval(() => {
+            if (charIndex < text.length) {
+              element.textContent = text.substring(0, charIndex + 1);
+              charIndex++;
+              
+              if (Math.random() > 0.8) {
+                playTypingSound();
+              }
+            } else {
+              clearInterval(typeText);
+            }
+          }, 50);
+          
+        }, index * 800); // Stagger the appearance
+      });
+    })
+    .catch(() => {
+      document.getElementById('ip').textContent = 'NETWORK COMPROMISED';
+    });
+
+  // Random glitch effects throughout
+  setInterval(() => {
+    if (Math.random() > 0.98) {
+      triggerColorFlash();
+    }
+  }, 1000);
+
+  // Window resize handler for matrix
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
