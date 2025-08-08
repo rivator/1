@@ -200,7 +200,7 @@
     /* Normal GIFs Styling */
     .gif-container {
       position: fixed;
-      z-index: 9000; /* زيادة z-index ليكون فوق كل شيء */
+      z-index: 9000;
       pointer-events: none;
       display: block;
     }
@@ -211,7 +211,7 @@
       border-radius: 15px;
       border: 3px solid #00ff00;
       box-shadow: 0 0 20px #00ff00;
-      opacity: 1; /* زيادة الشفافية */
+      opacity: 1;
     }
 
     .gif-top-left {
@@ -229,6 +229,11 @@
       left: 30px;
     }
 
+    .gif-bottom-right {
+      bottom: 150px;
+      right: 30px;
+    }
+
     /* Connection Lines Animation */
     .connection-line {
       position: fixed;
@@ -238,9 +243,9 @@
     }
 
     .line1 {
-      top: 105px; /* من منتصف gif1 */
+      top: 105px;
       left: 105px;
-      width: calc(100vw - 210px); /* العرض بين gif1 و gif2 */
+      width: calc(100vw - 210px);
       height: 3px;
       background: linear-gradient(90deg, #00ff00, #33ff33, #00ff00);
       animation: lineFlow1 4s infinite;
@@ -248,19 +253,19 @@
     }
 
     .line2 {
-      top: 105px; /* من منتصف gif2 */
+      top: 105px;
       right: 105px;
       width: 3px;
-      height: calc(100vh - 360px); /* الطول بين gif2 و gif4 */
+      height: calc(100vh - 360px);
       background: linear-gradient(180deg, #00ff00, #33ff33, #00ff00);
       animation: lineFlow2 4s infinite 1s;
       transform-origin: top;
     }
 
     .line3 {
-      bottom: 225px; /* من منتصف gif4 */
+      bottom: 225px;
       right: 105px;
-      width: calc(100vw - 210px); /* العرض بين gif4 و gif3 */
+      width: calc(100vw - 210px);
       height: 3px;
       background: linear-gradient(270deg, #00ff00, #33ff33, #00ff00);
       animation: lineFlow3 4s infinite 2s;
@@ -268,10 +273,10 @@
     }
 
     .line4 {
-      bottom: 225px; /* من منتصف gif3 */
+      bottom: 225px;
       left: 105px;
       width: 3px;
-      height: calc(100vh - 360px); /* الطول بين gif3 و gif1 */
+      height: calc(100vh - 360px);
       background: linear-gradient(0deg, #00ff00, #33ff33, #00ff00);
       animation: lineFlow4 4s infinite 3s;
       transform-origin: bottom;
@@ -552,7 +557,7 @@
 <div id="hacker-screen"></div>
 
 <div id="main-content">
-  <div id="hacked-title">HACKED BY @rivator.</div>
+  <div id="hacked-title">SERVER HACKED BY @rivator.</div>
   
   <div class="image-container">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnVuczE2ajVqcHFpb2thbDJnOWI2c2l5ZzF6NTZtM3Q0MzMzNDRybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bJ4TVNYNUympPgcpem/giphy.gif" alt="Hacker GIF">
@@ -573,7 +578,7 @@
     <span><strong>Timezone:</strong> <span id="timezone"></span></span>
   </div>
 
-  <div class="text">discord : <span class="rivartor-flash">@rivartor.</span></div>
+  <div class="text">discord : <span class="rivator-flash">@rivator.</span></div>
 </div>
 
 <!-- Connection Lines Animation -->
@@ -593,7 +598,7 @@
   <div class="flow-dot dot4"></div>
 </div>
 
-<!-- Normal GIFs - Visible by default for testing -->
+<!-- Normal GIFs - Now with proper positioning -->
 <div class="gif-container gif-top-left" id="gif1" style="display: block;">
   <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXV1NW5mdTd6N2VxcHcyNTR4MmRxZXU3bnU4NGVja3hneHI0YmRqNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vuAiSUvSf87YnP4j27/giphy.gif" class="normal-gif" alt="GIF 1" style="display: block;">
 </div>
