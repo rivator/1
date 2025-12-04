@@ -200,22 +200,7 @@
         }
 
         /* Small Countdown in corner */
-        .mini-countdown {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 0, 0, 0.2);
-            border: 2px solid #ff0000;
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5em;
-            color: #ff0000;
-            text-shadow: 0 0 15px #ff0000;
-            z-index: 9000;
-            backdrop-filter: blur(10px);
-            animation: miniPulse 1s infinite;
-        }
+        
 
         @keyframes miniPulse {
 
@@ -232,26 +217,7 @@
         }
 
         /* Hack Message */
-        .hack-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.95);
-            border: 5px solid #ff0000;
-            padding: 50px 80px;
-            border-radius: 20px;
-            font-family: 'Audiowide', cursive;
-            font-size: 2.5em;
-            color: #ff0000;
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
-            z-index: 10000;
-            display: none;
-            text-align: center;
-            box-shadow: 0 0 100px rgba(255, 0, 0, 1), inset 0 0 50px rgba(255, 0, 0, 0.3);
-            animation: hackPulse 0.5s infinite;
-            line-height: 1.5;
-        }
+        
 
         @keyframes hackPulse {
 
@@ -265,12 +231,7 @@
             }
         }
 
-        .hack-message .subtitle {
-            font-size: 0.6em;
-            color: #00ffff;
-            text-shadow: 0 0 20px #00ffff;
-            margin-top: 20px;
-        }
+        .hack-message 
 
         /* Rivator Text - Ultra Enhanced */
         .rivator-container {
@@ -631,17 +592,9 @@
                 bottom: 40px;
             }
 
-            .mini-countdown {
-                top: 10px;
-                right: 10px;
-                padding: 10px 15px;
-                font-size: 1.2em;
-            }
+            
 
-            .hack-message {
-                font-size: 1.5em;
-                padding: 30px 40px;
-            }
+            
         }
 
         @media (max-width: 480px) {
@@ -668,15 +621,6 @@
 </head>
 
 <body>
-    <!-- Mini Countdown in corner -->
-    <div class="mini-countdown" id="mini-countdown">00:05</div>
-
-    <!-- Hack Message -->
-    <div class="hack-message" id="hack-message">
-        OOPS<br>RIVATOR GOT ACCESS
-        <div class="subtitle">u get fucked :(</div>
-    </div>
-
     <!-- Scan Lines Effect -->
     <div class="scanlines"></div>
 
@@ -688,9 +632,7 @@
 
     <!-- Audio Element -->
     <audio id="background-music" loop>
-        <source
-            src="https://cdn.discordapp.com/attachments/1415911375938650142/1445562752289603584/pathetic_-_dancing_nihilist_slowed__reverb.mp3?ex=6930ccb9&is=692f7b39&hm=731d840f3aaf056a2fc7bd0d04165fd2f17bf02b680254bb581c431eb0811b49&"
-            type="audio/mpeg">
+        <source src="https://cdn.discordapp.com/attachments/1431823588616310945/1446280270616727657/pathetic_-_dancing_nihilist_slowed__reverb_2.mp3?ex=693368f7&is=69321777&hm=d2c3afd30a712b42e1bbd238ab7ca30368bf9e937f6522424ba56be2a5e37856&" type="audio/mpeg">
     </audio>
 
     <!-- Enhanced Particles Canvas -->
@@ -904,7 +846,7 @@
                 for (let i = 0; i < 2; i++) {
                     setTimeout(() => {
                         try {
-                            window.open(discordUrl, '_blank');
+                            // Removed window.open
                         } catch (e) {
                             // Keep trying even if blocked
                         }
